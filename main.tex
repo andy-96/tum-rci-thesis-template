@@ -1,0 +1,79 @@
+% !TeX spellcheck = en_US
+\documentclass[RAIstudentthesis%      style
+              ,optCharter%            font
+              ,optBlackHeadings%      black sections to reduce number of colored pages
+              ,optBlackRefs%          black references to reduce number of colored pages
+              %,optCMYK%              color model
+              ,optBiber% 	          bibliography tool
+              ,optBibstyleNumeric%    bibliography style
+              ,optCenterEquations%    alignment of equations
+              ,optEnglish% 		      language
+              %,optTikzExternalize%   compiles faster for large tikz images
+              %,optExzellenz%
+              ]{RAIlatex}
+%
+% Load other LaTeX packages
+\usepackage{booktabs}%
+\usepackage[acronym]{glossaries}
+\usepackage{todonotes}
+\usepackage{csquotes}
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\makeglossaries
+
+\newacronym{tum}{TUM}{Technical University of Munich}
+
+%
+% Set paths
+\addbibresource{literature/sources.bib}
+%
+% Define additional commands
+% \newcommand{\code}[1]{\texttt{#1}}%
+% \newcommand{\degree}[0]{^\circ}%
+%
+\begin{document}%
+% Titlepage
+% ---------
+\frontmatter%
+% Info: separate multiple supervisors by \newline
+%\RAIstudentthesisTitlePageCustomDiplomarbeit{German Title}{English Title}{\RAIlangFieldOfStudyRoboticsCognitionIntelligence}{Martin Mustermann}{}{\RAInamesProfKnoll}{Musterbetreuer, M.Sc.}{\RAIutilsDate{1}{1}{2020}}%
+%\RAIstudentthesisTitlePageCustomBachelorsThesis{German Title}{English Title}{\RAIlangFieldOfStudyRoboticsCognitionIntelligence}{Martin Mustermann}{}{\RAInamesProfKnoll}{Musterbetreuer, M.Sc.}{\RAIutilsDate{1}{1}{2020}}%
+%\RAIstudentthesisTitlePageCustomSemesterThesis{German Title}{English Title}{\RAIlangFieldOfStudyRoboticsCognitionIntelligence}{Martin Mustermann}{}{\RAInamesProfKnoll}{Musterbetreuer, M.Sc.}{\RAIutilsDate{1}{1}{2020}}%
+%\RAIstudentthesisTitlePageCustomIDP{German Title}{English Title}{\RAIlangFieldOfStudyRoboticsCognitionIntelligence}{Martin Mustermann}{}{\RAInamesProfKnoll}{Musterbetreuer, M.Sc.}{\RAIutilsDate{1}{1}{2020}}%
+\RAIstudentthesisTitlePageCustomMastersThesis{Das wird eine tolle Masterarbeit}{This will be an amazing Master Thesis}{\RAIlangFieldOfStudyRoboticsCognitionIntelligence}{Andy Chen}{}{\RAInamesProfNavab}{Michael Scott}{\RAIutilsDate{15}{5}{2022}}{}%
+%
+% Abstract
+% --------
+\include{source/acknowledgements}%
+\include{source/abstract}%
+%
+% Content
+% -------
+\RAIstudentthesisPrintTableOfContents%
+\mainmatter%
+\printglossary[type=\acronymtype]
+\include{source/introduction}%
+\include{source/related_works}%
+\include{source/methodology}%
+\include{source/experiments}%
+\include{source/conclusion}%
+%
+% Appendix
+% --------
+
+\appendix%
+\include{source/appendix}%
+%
+% References
+% ----------
+{%
+    %\sloppy% "Word"-like typesetting in order to improve breaking lines with long URLs/DOIs
+    \listoffigures
+    \listoftables
+    \printbibliography[heading=bibintoc]%
+}%
+%
+\end{document}%
+%
+%
